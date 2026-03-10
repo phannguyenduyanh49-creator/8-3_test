@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chúc mừng 8/3</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ffb6c1,#ffe4e1);
+    font-family:Arial;
+    overflow:hidden;
+}
+
+button{
+    padding:15px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    background:#ff4081;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#message{
+    margin-top:30px;
+    font-size:28px;
+    color:#d81b60;
+    display:none;
+    text-align:center;
+}
+
+.flower{
+    position:absolute;
+    top:-50px;
+    font-size:24px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="showWish()" Hãy nhấn và đừng suy nghĩ gì cả🌸</button>
+
+<div id="message">
+💐 Chúc bạn ngày 8/3 thật nhiều niềm vui,  
+luôn xinh đẹp, hạnh phúc và thành công! 💖
+</div>
+
+<script>
+
+function showWish(){
+    document.getElementById("message").style.display="block";
+    startFlowers();
+}
+
+function startFlowers(){
+
+    setInterval(()=>{
+        let flower=document.createElement("div");
+
+        flower.classList.add("flower");
+        flower.innerHTML="🌸";
+
+        flower.style.left=Math.random()*100+"vw";
+        flower.style.animationDuration=(3+Math.random()*3)+"s";
+
+        document.body.appendChild(flower);
+
+        setTimeout(()=>{
+            flower.remove();
+        },6000);
+
+    },200);
+
+}
+
+</script>
+
+</body>
+</html>
